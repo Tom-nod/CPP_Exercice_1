@@ -1,6 +1,8 @@
 #include <iostream>
 
 int main() {
-    std::cout << "Hello World!" << std::endl;
+    int var;
+    std::cin >> var;
+    std::cout << "Hello World!" << var << std::endl;
     return 0;
 }
