@@ -14,7 +14,7 @@ int main() {
     std::cout << "Hello " << name << "!" << std::endl;
 
     const int x{10};
-    int y = add(x, x);
+    auto y = add(x, x);
     add_to(y, 22);
     std::cout << y << std::endl;
     return 0;
