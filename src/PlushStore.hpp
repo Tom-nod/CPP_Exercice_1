@@ -2,6 +2,9 @@
 
 #include <iostream>
 #include <cmath>
+#include <optional>
+
+#include <Plush.hpp>
 
 class PlushStore {
     public:
@@ -40,17 +43,32 @@ class PlushStore {
         if(_wealth_amount != 0){
             ++_stock_size;
             ++_experience;
-            value = abs(_wealth_amount - cost);
-            _wealth_amount -= value;
+            if(cost < _wealth_amount){
+                value = cost;
+            } else{
+                value = cost - _wealth_amount;
+            }
+            _wealth_amount -= cost;
             if(_wealth_amount < 0){
                 _wealth_amount = 0;
             }
         }
-        return value;
+        return value + std::max(_experience, _experience * value / 100);
     }
 
     int get_experience() const {
         return _experience;
+    }
+
+    std::optional<Plush> buy(int cost){
+        auto plush = Plush();
+        if (cost < plush.get_cost()){
+            return {};
+        }
+        plush.set_cost(_experience);
+        --_stock_size;
+        _wealth_amount += cost;
+        return {plush};
     }
 
     private:
