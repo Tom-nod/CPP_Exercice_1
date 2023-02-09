@@ -1,6 +1,8 @@
 #pragma once
 
 #include <vector>
+#include <memory>
+#include <utility>
 
 #include "Pokemon.h"
 
@@ -8,10 +10,16 @@
 // When a Pokemon is transferred to the PC, this one takes ownership.
 class PC{
     public:
-        const std::vector<Pokemon> pokemons() const{
+        const std::vector<PokemonPtr>& pokemons() const{
             return _pokemons;
         }
 
+        void transfer(PokemonPtr pokemon){
+            if(pokemon != nullptr){
+                _pokemons.emplace_back(std::move(pokemon));
+            }
+        }
+
     private:
-        std::vector<Pokemon>        _pokemons;
+        std::vector<PokemonPtr>        _pokemons;
 };
