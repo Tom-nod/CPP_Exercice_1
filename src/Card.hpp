@@ -15,7 +15,6 @@ const std::string to_string(const CardType ct) {
         break;
     case CardType::Trap:
         return "Trap";
-        break;
     }
     return "";
 }
