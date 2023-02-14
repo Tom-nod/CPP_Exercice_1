@@ -25,6 +25,7 @@ class Trap : public Card {
         : Card(id, CardType::Trap), _trap(trap)
         {
             set_name(name);
+            _symbol = u8"罠";
         }
 
         TrapType get_trap_type() const {

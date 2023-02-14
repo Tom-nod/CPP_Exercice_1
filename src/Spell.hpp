@@ -31,6 +31,7 @@ class Spell : public Card {
         : Card(id, CardType::Spell), _spell(spell)
         {
             set_name(name);
+            _symbol = u8"魔";
         }
 
         SpellType get_spell_type() const {

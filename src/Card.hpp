@@ -51,6 +51,13 @@ class Card {
             _description = description;
         }
 
+        const std::string get_symbol() const {
+            return _symbol;
+        }
+
+    protected:
+        std::string _symbol;
+
     private:
         std::string             _id;
         CardType                _type;

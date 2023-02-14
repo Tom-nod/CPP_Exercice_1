@@ -38,6 +38,7 @@ class Monster : public Card {
                  _type(type), _atk(atk), _def(def)
         { 
             set_name(name);
+            _symbol = to_symbol(attribute);
         }
 
         Attribute get_attribute() const {
