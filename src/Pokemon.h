@@ -2,6 +2,9 @@
 
 #include <string>
 #include <memory>
+#include <utility>
+
+class Trainer;
 
 #define PokemonPtr std::unique_ptr<Pokemon>
 
@@ -32,8 +35,17 @@ class Pokemon{
             return *this;
         }
 
+        Trainer* trainer() const{
+            return _trainer;
+        }
+
+        void set_trainer(Trainer& trainer){
+            _trainer = &trainer;
+        }
+
     private:
         static int next_id;
         std::string         _name;
         int                 _id;
+        Trainer*            _trainer = nullptr;
 };
