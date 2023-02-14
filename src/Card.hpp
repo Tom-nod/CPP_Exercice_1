@@ -32,7 +32,7 @@ class Card {
             return _id;
         }
 
-        CardType get_type() {
+        CardType get_type() const {
             return _type;
         }
 
