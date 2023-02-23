@@ -7,13 +7,17 @@
 class ArrayNode : public Node {
     public:
     ArrayNode(){
-
+        setKind(NodeKind::ARRAY);
     }
 
     const std::string print() const override {
         return "[]";
     }
 
+    static std::unique_ptr<ArrayNode> make_ptr(){
+        return std::make_unique<ArrayNode>();
+    }
+
     private:
-    std::vector<Node>        _array;
+    std::vector<NodePtr>        _array;
 };
