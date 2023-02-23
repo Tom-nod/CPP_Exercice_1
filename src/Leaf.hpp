@@ -8,7 +8,7 @@ class Leaf : public Node {
     protected:
     Leaf(){
 
-    };
+    }
     
     private:
 };
