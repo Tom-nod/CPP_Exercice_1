@@ -38,6 +38,9 @@ class ObjectNode : public Node {
     }
 
     int height() const override {
+        if(_map.size() == 0){
+            return 0u;
+        }
         int height_max = 0;
         for(auto const& it : _map){
             auto value = it.second->height();

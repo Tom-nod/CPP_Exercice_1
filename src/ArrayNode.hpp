@@ -40,7 +40,7 @@ class ArrayNode : public Node {
         }
         int height_max = 0;
         for(auto i = 0; i < child_count(); ++i){
-            if(_array[i]->kind() == NodeKind::ARRAY){
+            if(_array[i]->kind() == NodeKind::ARRAY || _array[i]->kind() == NodeKind::OBJECT){
                 height_max = std::max(height_max, _array[i]->height());
             }
         }

@@ -6,6 +6,7 @@
 #include "StringLeaf.hpp"
 #include "ArrayNode.hpp"
 #include "ObjectNode.hpp"
+#include "JsonParser.hpp"
 
 int main()
 {
@@ -29,6 +30,9 @@ int main()
     objectnode_ptr->insert("string", std::move(stringnode_ptr));
     objectnode_ptr->insert("int", std::move(intnode_ptr));
     std::cout << "objectnode : " << objectnode_ptr->node_count() << std::endl;
+
+    std::string json_dir = "../json/";
+    std::unique_ptr<Node> node_ptr = JsonParser::parse_from_file(json_dir + "cpp2023.json");
 
     return 0;
 }

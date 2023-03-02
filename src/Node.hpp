@@ -8,6 +8,9 @@
 #include "InstanceCounter.hpp"
 #include "NodeKind.hpp"
 
+class IntLeaf;
+class StringLeaf;
+
 #define NodePtr std::unique_ptr<Node>
 
 class Node : public InstanceCounter {
@@ -33,6 +36,9 @@ class Node : public InstanceCounter {
     virtual int node_count() const {
         return 0u;
     }
+
+    IntLeaf* as_IntLeaf();
+    StringLeaf* as_StringLeaf();
     
     protected:
     Node(){
