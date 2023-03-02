@@ -58,6 +58,26 @@ class ObjectNode : public Node {
         return count + 1;
     }
 
+    bool has_child(const std::string key){
+        for(auto const& it : _map){
+            auto key_map = it.first;
+            if(key == key_map){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    NodePtr at(const std::string key){
+        for(auto const& it : _map){
+            auto key_map = it.first;
+            if(key == key_map){
+                return it.second;
+            }
+        }
+        return nullptr;
+    }
+
     private:
     std::map<std::string, NodePtr>             _map;
 };
