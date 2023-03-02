@@ -10,6 +10,8 @@
 
 class IntLeaf;
 class StringLeaf;
+class ArrayNode;
+class ObjectNode;
 
 #define NodePtr std::unique_ptr<Node>
 
@@ -39,6 +41,8 @@ class Node : public InstanceCounter {
 
     IntLeaf* as_IntLeaf();
     StringLeaf* as_StringLeaf();
+    ArrayNode* as_ArrayNode();
+    ObjectNode* as_ObjectNode();
     
     protected:
     Node(){
