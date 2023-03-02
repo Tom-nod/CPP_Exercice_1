@@ -3,6 +3,7 @@
 #include <string>
 #include <memory>
 #include <utility>
+#include <algorithm>
 
 #include "InstanceCounter.hpp"
 #include "NodeKind.hpp"
@@ -23,6 +24,14 @@ class Node : public InstanceCounter {
 
     NodeKind kind(){
         return _kind;
+    }
+
+    virtual int height() const {
+        return 0u;
+    }
+
+    virtual int node_count() const {
+        return 0u;
     }
     
     protected:
