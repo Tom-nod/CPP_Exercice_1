@@ -56,3 +56,29 @@ Image<A, W, H> operator+(const Image<A, W, H>& a, const Image<A, W, H>& b){
     }
     return img;
 }
+
+template<size_t W, size_t H>
+Image<RGB, W, H> operator+(const Image<Luma, W, H> & a,
+          const Image<RGBA, W, H> & b)
+{
+    Image<RGB, W, H> img = {};
+    for(size_t i = 0; i < W; ++i){
+        for(size_t j = 0; j < H; ++j){
+            img(i, j) = a(i, j) + b(i, j);
+        }
+    }
+    return img;
+}
+
+template<size_t W, size_t H>
+Image<RGB, W, H> operator+(const Image<Luma, W, H> & a,
+          const Image<RGB , W, H> & b)
+{
+    Image<RGB, W, H> img = {};
+    for(size_t i = 0; i < W; ++i){
+        for(size_t j = 0; j < H; ++j){
+            img(i, j) = a(i, j) + b(i, j);
+        }
+    }
+    return img;
+}
